@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>My Form Validator</title>
+
+</head>
+<body>
+
+  <div id="container">
+    <form class="form" id="form">
+      <h1 id="title">Register With Us!</h1>
+      <div class="inputContainer">
+        <h2 class="subtitle">Username</h2>
+        <input type="text" id="username" placeholder="Enter username...">
+        <small>Error message</small>
+      </div>
+      <div class="inputContainer">
+        <h2 class="subtitle">Email</h2>
+        <input type="text" id="email" placeholder="Enter email...">
+        <small>Error message</small>
+      </div>
+      <div class="inputContainer">
+        <h2 class="subtitle">Password</h2>
+        <input type="password" id="password" placeholder="Enter password...">
+        <small>Error message</small>
+      </div>
+      <div class="inputContainer">
+        <h2 class="subtitle">Confirm Password</h2>
+        <input type="password" id="password2" placeholder="Enter password again...">
+        <small>Error message</small>
+      </div>
+      <button class="submitButton">Submit</button>
+      <small id="msg">Don't worry, none of this is saved.</small>
+    </form>  
+
+
+  </div>
+
+
+
+  <script src="script.js"></script>
+</body>
+</html>

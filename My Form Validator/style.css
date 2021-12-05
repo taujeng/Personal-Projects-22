@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Open+Sans&display=swap');
+
+:root {
+  --success-color: #50c878;
+  --error-color: #990000;
+}
+
+* {
+  box-sizing: border-box;
+  /* don't let any padding affect width of elements */
+}
+
+body {
+  background-color: #f5f5f5;
+  font-family: 'Merriweather', serif;
+  display: flex;
+  /* all children become flex: everything is more easily centered */
+  /* to center stuff */
+  align-items: center;
+  justify-content: center;
+  /* to also center things vertically */
+  min-height: 50vh;
+  margin: 0;
+}
+
+#container {
+  padding: 20px 40px 30px;
+  margin: 40px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px;
+}
+
+#title {
+  font-size: 40px;
+  margin-bottom: 50px;
+}
+
+.subtitle {
+  margin-top: 30px;
+}
+/* Styling Input Form */
+
+.form input {
+  border: 2px solid whitesmoke;
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 12px;
+  display: block;
+  width: 80%;
+  margin-bottom: 2px;
+}
+
+.form input:focus {
+  outline: 0;
+  border-color: #777;
+}
+
+.form input.success {
+  border-color: var(--success-color);
+}
+
+.form input.error {
+  border-color: var(--error-color);
+}
+
+small {
+  display: absolute;
+  visibility: hidden;
+  margin: 5px 0 0 10px;
+  color: var(--error-color);
+}
+
+small.error {
+  visibility: visible;
+}
+
+/* Submit Button */
+.submitButton {
+  cursor: pointer;
+  background-color: #3498db;
+  border: 2px solid #3498db;
+  border-radius: 4px;
+  display: block;
+  font-size: 16px;
+  font-style: bold;
+  padding: 10px;
+  margin: 20px 0 5px 0;
+  width: 100%;
+}
+
+/* Extra Msg */
+small#msg {
+  color: grey;
+  visibility: hidden;
+}
+
+small#msg.error {
+  visibility: visible;
+}
