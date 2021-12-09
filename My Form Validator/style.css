@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Open+Sans&display=swap');
 
 :root {
-  --success-color: #50c878;
+  --valid-color: #50c878;
   --error-color: #990000;
 }
 
@@ -39,10 +39,11 @@ body {
 .subtitle {
   margin-top: 30px;
 }
+
 /* Styling Input Form */
 
 .form input {
-  border: 2px solid whitesmoke;
+  border: 3px solid whitesmoke;
   border-radius: 4px;
   font-size: 16px;
   padding: 12px;
@@ -56,11 +57,11 @@ body {
   border-color: #777;
 }
 
-.form input.success {
-  border-color: var(--success-color);
+.inputContainer.valid input {
+  border-color: var(--valid-color);
 }
 
-.form input.error {
+.inputContainer.error input {
   border-color: var(--error-color);
 }
 
@@ -71,7 +72,7 @@ small {
   color: var(--error-color);
 }
 
-small.error {
+.inputContainer.error small {
   visibility: visible;
 }
 
@@ -90,11 +91,11 @@ small.error {
 }
 
 /* Extra Msg */
-small#msg {
+#msg {
   color: grey;
   visibility: hidden;
 }
 
-small#msg.error {
+#msg.valid {
   visibility: visible;
 }
