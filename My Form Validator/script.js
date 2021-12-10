@@ -67,22 +67,13 @@ function isValid(input) {
   function extraMessage(array) {
     let counter = 0;
     array.forEach(item => {
-      if (!item.parentElement.className.includes('valid')) {
-        return;
-      } else{
+      if (item.parentElement.className.includes('valid')) {
         counter += 1;
       }
       })
     if (counter === 4) {
       document.getElementById('msg').className = 'valid';
     }
-      
-    // }
-    // array.every
-    // console.log(array.forEach(item => {
-    //   item.parentElement.className.includes('valid')
-    // }))
-
   }  
 
 
@@ -93,8 +84,8 @@ form.addEventListener("submit", function(e) {
 
   checkBlank([username, email, password, password2]);
   emailAuth(email);
-  checkLength(password, 6, 12);
   checkLength(username, 3, 15);
+  checkLength(password, 6, 12);
   passwordMatch(password, password2);
   extraMessage([username, email, password, password2]);
 
