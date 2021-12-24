@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Open+Sans&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #242333;
+  color: #fff;
+  /* color of the text white so we can see it*/
+  display: flex;
+  flex-direction: column;
+  /* default is row. this makes is so everything is lined up vertically */
+  align-items: center;
+  /* centers everything horizontally */
+  justify-content: center;
+  height: 100vh;
+  /* centers everything horizontally */
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+  /* remove any margin the body has */
+}
+
+.movie-container {
+  margin: 20px 0;
+}
+
+.movie-container select {
+  background-color: #fff;
+  border: 0;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-left: 10px;
+  padding: 5px 15px 5px 15px;
+  /* select list looks a bit different depending on the system you're on */
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  /* now padding is in effect */
+}
+
+.seat {
+  background-color: #444451;
+  height: 12px;
+  width: 15px;
+  margin: 3px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  /* round out the top so the boxes look more like seats */
+}
+
+.seat.selected {
+  background-color: #6feaf6;
+}
+
+.seat.occupied {
+  background-color: #fff;
+}
+
+/* keep in mind rn we have 6 divs of class row w 8 seats per row.
+  however, all we're seeing is one vertical line of seat,
+  to make them horizontal: */
+.row {
+  display: flex;
+}
+
+/* you know in movie theaters, there's extra spacing in certain columns
+  to achieve this, we use a pseudo selector */
+
+.seat:nth-of-type(2) {
+  margin-right: 18px;
+}
+
+/* so this adds a margin to the RIGHT of the 2nd column */
+
+.seat:nth-last-of-type(2) {
+  margin-left: 18px;
+}
+
+/* repeat on the right side of the theater */
+
+.seat:not(.occupied):hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+/* so this say: if a seat isn't occupied, when hovered over,
+  cursor becomes a pointer (from default to hand pointing)
+  and it scaled to be slightly bigger (1 is default) */
+
+.showcase .seat:not(.occupied):hover {
+  cursor: default;
+  transform: scale(1);
+}
+
+/* however, we don't want this to affect the legend, so: ^ */
+
+.showcase {
+  background-color: rgba(0, 0, 0, 0.1);
+  /* for rgba, 0,0,0 is black, and then 0.1 is transparency */
+  padding: 5px 10px;
+  border-radius: 5px;
+  /* thinks this gives it rounder corners */
+  color: #777;
+  /* change text from white to dark grey so not too blinding */
+  list-style-type: none;
+  /* get rid of the bullet points */
+  display: flex;
+  /* want to display them horizontally */
+  justify-content: space-between;
+  /* any remaining space goes between the elements */
+}
+
+.showcase li {
+  display: flex;
+  /* remember both the seats and the caption are li, so flex makes them all display horizonatally */
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+}
+
+.showcase li small {
+  margin-left: 2px;
+}
+
+/* push the seat a lil away from the words */
+
+.screen {
+  background-color: #fff;
+  height: 70px;
+  width: 100%;
+  /* takes up whole width of it's cont */
+  margin: 15px 0;
+  transform: rotateX(-45deg);
+  /* makes it a bit thinner */
+  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
+  /* blur effect around the edges */
+}
+
+.container {
+  perspective: 1000px;
+  /* perspective has to do w 3D effects. try setting it to a large value */
+  margin-bottom: 30px;
+}
+
+p.text {
+  margin: 5px 0;
+}
+
+p.text span {
+  color: #6feaf6;
+}
