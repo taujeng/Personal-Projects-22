@@ -9,25 +9,73 @@ const count = document.getElementById('count');
 const total = document.getElementById('total');
 const movieSelect = document.getElementById('movie');
 
+populateUI();
+
+
 let ticketPrice = +movieSelect.value;
 // this grabs the value of the current (not selected, need an event listener for that)
 // note that the value comes out as a string, so add a "+" or parseInt to make it a number
+
+// Save selected Movie index and price
+function setMovieData(movieIndex, moviePrice) {
+  localStorage.setItem('selectedMovieIndex', movieIndex);
+  localStorage.setItem('selectedMoviePrice', moviePrice);
+}
 
 
 function updateSelectedSeats() {
   const selectedSeats = document.querySelectorAll('.row .selected');
   const selectedSeatsCount = selectedSeats.length;
+  // selectedSeats is a node list of seat divs.
+
+  // if I want to also find their indexes:
+  const seatsIndex = [...selectedSeats].map(function(seat){
+    return [...seats].indexOf(seat)
+  });
+
+  // Local Storage is built into browser, don't need to import anything
+  localStorage.setItem('selectedSeats', JSON.stringify(seatsIndex));
+  // but it only takes strings, so we take our array and stringify it
 
   count.innerText = selectedSeatsCount;
-  total.innerText = selectedSeatsCount * ticketPrice;  
+  total.innerText = selectedSeatsCount * ticketPrice;
+  
+  
+
+
 }
+
+// Get Data from Local Storage and Populate UI
+function populateUI() {
+  const selectedSeats = JSON.parse(localStorage.getItem('selectedSeats'));
+  console.log(selectedSeats);
+
+  if (selectedSeats !== null && selectedSeats.length > 0) {
+    seats.forEach((seats, index) => {
+      if (selectedSeats.indexOf(index) > -1)
+      // when using indexOf, if it's not there, it returns -1
+        seats.classList.add('selected');
+    })
+  }
+
+  const selectedMovieIndex = localStorage.getItem('selectedMovieIndex');
+
+  if (selectedMovieIndex !== null) {
+    movieSelect.selectedIndex = selectedMovieIndex;
+  }
+}
+
 
 //    The Movie Select Event
 // since this is a select list, you want a 'change' event
 movieSelect.addEventListener('change', (e)=> {
   ticketPrice = +e.target.value
+  setMovieData(e.target.selectedIndex, e.target.value);
   updateSelectedSeats();
 })
+
+
+
 
 
 
@@ -48,3 +96,6 @@ container.addEventListener('click', (e) => {
     updateSelectedSeats();
   }
 })
+
+// Initial Count and total set
+updateSelectedSeats();
