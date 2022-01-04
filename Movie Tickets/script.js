@@ -48,7 +48,6 @@ function updateSelectedSeats() {
 // Get Data from Local Storage and Populate UI
 function populateUI() {
   const selectedSeats = JSON.parse(localStorage.getItem('selectedSeats'));
-  console.log(selectedSeats);
 
   if (selectedSeats !== null && selectedSeats.length > 0) {
     seats.forEach((seats, index) => {
