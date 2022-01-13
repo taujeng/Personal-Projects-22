@@ -24,7 +24,6 @@ function updatePlayIcon() {
   } else {
     play.innerHTML = '<i class= "fa fa-pause fa-2x"></i>';
   }
-  return true;
 }
 
 // Update progress and timestamp 
